@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knk Özel Gece 🔥</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #000022, #220033);
+      color: #ff69b4;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 10px;
+      text-shadow: 0 0 15px #ff00aa;
+    }
+    #character {
+      position: relative;
+      width: 300px;
+      height: 500px;
+      background: #111;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(255,0,170,0.6);
+      cursor: pointer;
+      margin: 20px;
+    }
+    .layer {
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.8s ease, transform 0.5s;
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+    }
+    #body { background: #f5d0b0; opacity: 1; } /* çıplak vücut */
+    #dress { background: linear-gradient(#ff69b4, #c71585); opacity: 1; }
+    #bra { background: #ff1493; opacity: 1; top: 100px; height: 150px; }
+    #panties { background: #ff0066; opacity: 1; top: 300px; height: 150px; }
+    #horny-meter {
+      width: 300px;
+      height: 30px;
+      background: #222;
+      border: 2px solid #ff69b4;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 20px;
+    }
+    #horny-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #ff0066, #ff3399);
+      transition: width 0.5s;
+    }
+    button {
+      padding: 15px 40px;
+      font-size: 1.5rem;
+      background: #ff0066;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255,0,100,0.7);
+      transition: all 0.3s;
+    }
+    button:hover { transform: scale(1.1); background: #ff3399; }
+    #progress { font-size: 1.6rem; margin: 10px; text-shadow: 0 0 10px #ff00ff; }
+    #scene-text { font-size: 1.3rem; max-width: 80%; margin: 20px; line-height: 1.5; color: #ffb6c1; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    .climax { animation: pulse 1s infinite; }
+  </style>
+</head>
+<body>
+
+  <h1>Knk Özel Gece 😈</h1>
+  <div id="progress">Seviye: 0/5 - Horny: 0%</div>
+
+  <div id="character" onclick="nextLevel()">
+    <div class="layer" id="body"></div>
+    <div class="layer" id="dress"></div>
+    <div class="layer" id="bra"></div>
+    <div class="layer" id="panties"></div>
+  </div>
+
+  <div id="horny-meter">
+    <div id="horny-fill"></div>
+  </div>
+
+  <button onclick="nextLevel()">Tıkla & İlerle 🔥</button>
+  <div id="scene-text">Başla knk... İlk dokunuşu sen yap 😏</div>
+
+  <script>
+    let level = 0;
+    let horny = 0;
+    const maxLevel = 5;
+    const progress = document.getElementById("progress");
+    const fill = document.getElementById("horny-fill");
+    const text = document.getElementById("scene-text");
+    const char = document.getElementById("character");
+
+    function updateHorny(add) {
+      horny = Math.min(100, horny + add);
+      fill.style.width = horny + "%";
+      if (horny >= 100) {
+        char.classList.add("climax");
+        text.innerHTML = "Ohaaa... patlıyoruz knk! 🔥💦<br>Her yer titriyor, boşalıyoruz birlikte... Ahhh!";
+        setTimeout(() => {
+          alert("Climax! Devam mı istiyorsun yoksa reset mi?");
+          resetGame();
+        }, 2000);
+      }
+    }
+
+    function nextLevel() {
+      if (horny >= 100) return;
+      level++;
+      progress.textContent = `Seviye: ${level}/${maxLevel} - Horny: ${horny}%`;
+
+      if (level === 1) {
+        document.getElementById("dress").style.opacity = "0";
+        text.innerHTML = "Elbise düştü... Göğüsler ortaya çıktı, sertleşmiş meme uçları belli 😏";
+        updateHorny(20);
+      } else if (level === 2) {
+        document.getElementById("bra").style.opacity = "0";
+        text.innerHTML = "Sütyen gitti... Göğüslerini avuçluyorum, inliyor yavaşça... Ah knk...";
+        updateHorny(25);
+      } else if (level === 3) {
+        document.getElementById("panties").style.opacity = "0";
+        text.innerHTML = "Külot sıyrıldı... Islak amı ortaya çıktı, parmaklarım içeri kayıyor... Sırılsıklam!";
+        updateHorny(30);
+      } else if (level === 4) {
+        text.innerHTML = "Sikimi amına dayadım... Yavaşça giriyorum, içimde sıcacık hissediyorsun... Derinlere...";
+        updateHorny(25);
+      } else if (level === 5) {
+        text.innerHTML = "Hızlanıyoruz... Sertçe pompalıyorum, kalçalarını tokatlıyorum! Geliyorum knk... İçine boşalıyorum! 💦💦";
+        updateHorny(100); // climax tetikle
+      }
+    }
+
+    function resetGame() {
+      level = 0;
+      horny = 0;
+      fill.style.width = "0%";
+      progress.textContent = "Seviye: 0/5 - Horny: 0%";
+      document.querySelectorAll(".layer").forEach(el => el.style.opacity = "1");
+      char.classList.remove("climax");
+      text.innerHTML = "Yeniden mi başlıyoruz knk? 😈";
+    }
+  </script>
+
+</body>
+</html>
