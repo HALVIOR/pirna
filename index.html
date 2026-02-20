@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Knk Özel Gece 🔥</title>
+  <title>Knk Özel Gece 🔥 V2</title>
   <style>
     body {
       margin: 0;
@@ -62,26 +62,28 @@
       transition: width 0.5s;
     }
     button {
-      padding: 15px 40px;
-      font-size: 1.5rem;
+      padding: 12px 30px;
+      font-size: 1.2rem;
       background: #ff0066;
       color: white;
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 0 20px rgba(255,0,100,0.7);
+      box-shadow: 0 0 15px rgba(255,0,100,0.7);
       transition: all 0.3s;
+      margin: 5px;
     }
     button:hover { transform: scale(1.1); background: #ff3399; }
     #progress { font-size: 1.6rem; margin: 10px; text-shadow: 0 0 10px #ff00ff; }
     #scene-text { font-size: 1.3rem; max-width: 80%; margin: 20px; line-height: 1.5; color: #ffb6c1; }
+    #position-buttons { display: none; flex-wrap: wrap; justify-content: center; }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
     .climax { animation: pulse 1s infinite; }
   </style>
 </head>
 <body>
 
-  <h1>Knk Özel Gece 😈</h1>
+  <h1>Knk Özel Gece 😈 V2</h1>
   <div id="progress">Seviye: 0/5 - Horny: 0%</div>
 
   <div id="character" onclick="nextLevel()">
@@ -95,7 +97,13 @@
     <div id="horny-fill"></div>
   </div>
 
-  <button onclick="nextLevel()">Tıkla & İlerle 🔥</button>
+  <button id="main-button" onclick="nextLevel()">Tıkla & İlerle 🔥</button>
+  <div id="position-buttons">
+    <button onclick="selectPosition('missionary')">Missionary</button>
+    <button onclick="selectPosition('doggy')">Doggy Style</button>
+    <button onclick="selectPosition('cowgirl')">Cowgirl</button>
+    <button onclick="selectPosition('anal')">Anal</button>
+  </div>
   <div id="scene-text">Başla knk... İlk dokunuşu sen yap 😏</div>
 
   <script>
@@ -106,22 +114,24 @@
     const fill = document.getElementById("horny-fill");
     const text = document.getElementById("scene-text");
     const char = document.getElementById("character");
+    const mainButton = document.getElementById("main-button");
+    const posButtons = document.getElementById("position-buttons");
 
     function updateHorny(add) {
       horny = Math.min(100, horny + add);
       fill.style.width = horny + "%";
       if (horny >= 100) {
         char.classList.add("climax");
-        text.innerHTML = "Ohaaa... patlıyoruz knk! 🔥💦<br>Her yer titriyor, boşalıyoruz birlikte... Ahhh!";
+        text.innerHTML += "<br>Ohaaa... patlıyoruz knk! 🔥💦 Her yer titriyor, boşalıyoruz birlikte... Ahhh!";
         setTimeout(() => {
           alert("Climax! Devam mı istiyorsun yoksa reset mi?");
           resetGame();
-        }, 2000);
+        }, 3000);
       }
     }
 
     function nextLevel() {
-      if (horny >= 100) return;
+      if (horny >= 100 || level >= 3) return; // seviye 3'ten sonra pozisyon seç
       level++;
       progress.textContent = `Seviye: ${level}/${maxLevel} - Horny: ${horny}%`;
 
@@ -135,15 +145,42 @@
         updateHorny(25);
       } else if (level === 3) {
         document.getElementById("panties").style.opacity = "0";
-        text.innerHTML = "Külot sıyrıldı... Islak amı ortaya çıktı, parmaklarım içeri kayıyor... Sırılsıklam!";
-        updateHorny(30);
-      } else if (level === 4) {
-        text.innerHTML = "Sikimi amına dayadım... Yavaşça giriyorum, içimde sıcacık hissediyorsun... Derinlere...";
-        updateHorny(25);
-      } else if (level === 5) {
-        text.innerHTML = "Hızlanıyoruz... Sertçe pompalıyorum, kalçalarını tokatlıyorum! Geliyorum knk... İçine boşalıyorum! 💦💦";
-        updateHorny(100); // climax tetikle
+        text.innerHTML = "Külot sıyrıldı... Islak amı ortaya çıktı, parmaklarım içeri kayıyor... Sırılsıklam! Şimdi pozisyon seç knk...";
+        updateHorny(20);
+        mainButton.style.display = "none";
+        posButtons.style.display = "flex";
       }
+    }
+
+    function selectPosition(pos) {
+      level = 4; // pozisyon seviyesi
+      let scene = "";
+      let addHorny = 25;
+
+      if (pos === "missionary") {
+        scene = "Missionary'de uzanıyor... Sikimi amına dayadım, yavaşça giriyorum. Gözlerime bakıyor, inliyor derin derin... İçinde kayıyorum, sıcacık!";
+      } else if (pos === "doggy") {
+        scene = "Doggy style'da döndürdüm... Kalçalarını tuttum, arkadan sertçe sokuyorum. Tokat atıyorum, çığlık atıyor zevkten... Derine, daha derine!";
+        addHorny = 30;
+      } else if (pos === "cowgirl") {
+        scene = "Cowgirl'de üstüme oturdu... Kendisi zıplıyor, sikim tamamen içinde. Göğüsleri sallanıyor, ellerim kalçalarında... Hızlanıyor!";
+      } else if (pos === "anal") {
+        scene = "Anal için yağladım... Yavaşça arkadan giriyorum, daracık hissediyorum. İnliyor acı-zevk karışımı... Pompalıyorum, boşalmak üzere!";
+        addHorny = 35;
+      }
+
+      text.innerHTML = scene;
+      updateHorny(addHorny);
+      posButtons.style.display = "none";
+      mainButton.style.display = "block";
+      mainButton.textContent = "Hızlan & Bitir 💦";
+
+      // Son tıklama için override
+      mainButton.onclick = function() {
+        level = 5;
+        text.innerHTML = "Hızlanıyoruz... Sertçe devam ediyorum, her vuruşta titriyor! Geliyorum knk... İçine/üstüne boşalıyorum! 💦💦";
+        updateHorny(100 - horny); // direkt climax
+      };
     }
 
     function resetGame() {
@@ -154,6 +191,10 @@
       document.querySelectorAll(".layer").forEach(el => el.style.opacity = "1");
       char.classList.remove("climax");
       text.innerHTML = "Yeniden mi başlıyoruz knk? 😈";
+      mainButton.style.display = "block";
+      mainButton.textContent = "Tıkla & İlerle 🔥";
+      posButtons.style.display = "none";
+      mainButton.onclick = nextLevel;
     }
   </script>
 
